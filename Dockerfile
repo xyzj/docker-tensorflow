@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-LABEL maintainer="Craig Citro <craigcitro@google.com>"
+LABEL maintainer="Minamoto Xu<migawari@google.com>"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         zip \
         zlib1g-dev \
         unzip \
-        && \
+        cmake \
+    && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -32,7 +33,8 @@ RUN ln -s -f /usr/bin/python3 /usr/bin/python && \
 RUN pip --no-cache-dir install -U \
         Pillow \
         h5py \
-        ipykernel \
+        dlib \
+    ipykernel \
         jupyter \
         keras_applications \
         keras_preprocessing \
