@@ -105,10 +105,10 @@ RUN tensorflow/tools/ci_build/builds/configured CPU \
         tensorflow/tools/pip_package:build_pip_package && \
     bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/pip && \
     pip --no-cache-dir install --upgrade /tmp/pip/tensorflow-*.whl && \
+    rm -rf /root/.cache \
     rm -rf /tmp/pip && \
     rm -rf /tmp/tensorflow && \
-    rm -f /tmp/* && \
-    rm -rf /root/.cache
+    rm -ff /tmp/*
 # Clean up pip wheel and Bazel cache when done.
 
 # TensorBoard IPython
